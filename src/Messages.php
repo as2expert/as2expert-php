@@ -15,6 +15,16 @@ final class Messages extends AbstractResource
         return $this->collection('/messages', $filter);
     }
 
+    /**
+     * List a station's folders (id, name, parent_id, count, icono, …).
+     * @param array<string,mixed> $filter may carry 'station'
+     * @return list<array<string,mixed>>
+     */
+    public function folders(array $filter = []): array
+    {
+        return $this->collection('/messages/folders', $filter);
+    }
+
     /** @return array<string,mixed> */
     public function get(mixed $id): array
     {
