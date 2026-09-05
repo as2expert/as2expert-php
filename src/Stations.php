@@ -35,4 +35,20 @@ final class Stations extends AbstractResource
     {
         return $this->object('/stations/create', $station);
     }
+
+    /**
+     * Update a station's identity fields.
+     * @param array<string,mixed> $fields
+     * @return array<string,mixed>
+     */
+    public function update(mixed $id, array $fields): array
+    {
+        return $this->object('/stations/update', ['id' => $id] + $fields);
+    }
+
+    /** @return array<string,mixed> */
+    public function delete(mixed $id): array
+    {
+        return $this->object('/stations/delete', ['id' => $id]);
+    }
 }
